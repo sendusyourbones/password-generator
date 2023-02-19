@@ -23,21 +23,20 @@ function generatePassword() {
   // Ask character type questions; repeat set if user answers "no" to all
   do {
     for (let i = 0; i < charTypes.length; i++) {
-      let includeStr;
-      let includeBool;
+      let includeType;
 
       // Ask each character type; repeat question if user does not respond "yes" or "no"
       do {
-        includeStr = prompt(`Do you want to include ${ charTypes[i] } characters in your password?\nPlease enter "yes" or "no". You must choose at least one of four character type options.`);
+        includeType = prompt(`Do you want to include ${ charTypes[i] } characters in your password?\nPlease enter "yes" or "no". You must choose at least one of four character type options.`);
         // If they click cancel, exit the function
-        if (includeStr === null) {
+        if (includeType === null) {
           return;
         }
-        includeStr = includeStr.toLowerCase();
-      } while (includeStr !== "yes" && includeStr !== "no");
+        includeType = includeType.toLowerCase();
+      } while (includeType !== "yes" && includeType !== "no");
 
       // If they answer "yes", add the type to a new array
-      if (includeStr === "yes") {
+      if (includeType === "yes") {
         selectedTypes.push(charTypes[i]);
       };
     }
