@@ -27,7 +27,7 @@ function generatePassword() {
 
       // Ask each character type; repeat question if user does not respond "yes" or "no"
       do {
-        includeType = prompt(`Do you want to include ${ charTypes[i] } characters in your password?\nPlease enter "yes" or "no". You must choose at least one of four character type options.`);
+        includeType = prompt(`Character Type ${ i + 1 } of 4\nDo you want to include ${ charTypes[i] } characters in your password?\nPlease enter "yes" or "no". You must choose at least one character type option.`);
         // If they click cancel, exit the function and return empty string so placeholder text remains
         if (includeType === null) {
           return '';
