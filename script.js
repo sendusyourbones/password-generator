@@ -9,9 +9,9 @@ function generatePassword() {
   // Ask length; repeat if user does not provide an int between 8 & 128
   do {
     lengthStr = prompt('How many characters do you want to include in your password?\nPlease enter an integer between 8 and 128.');
-    // If they click cancel, exit the function
+    // If they click cancel, exit the function and return empty string so placeholder text remains
     if (lengthStr === null) {
-      return;
+      return '';
     }
     lengthNum = Number(lengthStr);
   } while (isNaN(lengthNum) || !Number.isInteger(lengthNum) || lengthNum < 8 || lengthNum > 128);
@@ -28,9 +28,9 @@ function generatePassword() {
       // Ask each character type; repeat question if user does not respond "yes" or "no"
       do {
         includeType = prompt(`Do you want to include ${ charTypes[i] } characters in your password?\nPlease enter "yes" or "no". You must choose at least one of four character type options.`);
-        // If they click cancel, exit the function
+        // If they click cancel, exit the function and return empty string so placeholder text remains
         if (includeType === null) {
-          return;
+          return '';
         }
         includeType = includeType.toLowerCase();
       } while (includeType !== "yes" && includeType !== "no");
