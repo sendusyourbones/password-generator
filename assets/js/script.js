@@ -26,6 +26,7 @@ function generatePassword() {
       let includeType;
 
       // Ask each character type; repeat question if user does not respond "yes" or "no"
+      // I intentionally chose prompt instead of confirm for these questions because I want the user to be able to cancel out of the questions rather than using cancel to mean no/false
       do {
         includeType = prompt(`Character Type ${ i + 1 } of 4\nDo you want to include ${ charTypes[i] } characters in your password?\nPlease enter "yes" or "no". You must choose at least one character type option.`);
         // If they click cancel, exit the function and return empty string so placeholder text remains
@@ -91,7 +92,7 @@ function generatePassword() {
     let thisChar = thisCharOptions[charIndex];
 
     // Add this character to the password
-    newPassword = newPassword + thisChar;
+    newPassword += thisChar;
   }
 
   return newPassword;
